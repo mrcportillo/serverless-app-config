@@ -1,4 +1,4 @@
-const fetch = require("node-fetch");
+import fetch from "node-fetch";
 
 const APP_CONFIG_LAYER_HOST = "localhost:2772";
 const APP_CONFIG_APPLICATION_ID = "jj2wbav";
@@ -7,7 +7,7 @@ const AOO_CONFIG_CONFIG_ID = "2wa5i6i";
 
 const configUrl = `http://${APP_CONFIG_LAYER_HOST}/applications/${APP_CONFIG_APPLICATION_ID}/environments/${APP_CONFIG_ENVIRONMENT_ID}/configurations/${AOO_CONFIG_CONFIG_ID}`;
 
-module.exports.main = async (event) => {
+exports.main = async (event) => {
   try {
     const rq = await fetch(configUrl);
     return {
