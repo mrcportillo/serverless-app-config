@@ -1,4 +1,4 @@
-import fetch from "node-fetch";
+const fetch = require("node-fetch");
 
 const APP_CONFIG_LAYER_HOST = "localhost:2772";
 const APP_CONFIG_APPLICATION_ID = "jj2wbav";
