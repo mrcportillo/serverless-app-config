@@ -5,10 +5,18 @@ provider:
   name: aws
   runtime: nodejs12.x
   lambdaHashingVersion: '20201221'
+  profile: kelsusinc
+  iamRoleStatements:
+  - Effect: 'Allow'
+    Action:
+      - 'appconfig:GetConfiguration'
+    Resource: '*'
 
 functions:
   hello:
     handler: config.main
+    layers:
+      - arn:aws:lambda:us-east-1:027255383542:layer:AWS-AppConfig-Extension:61
     events:
       - httpApi:
           path: /
