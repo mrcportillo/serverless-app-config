@@ -1,4 +1,6 @@
 service: aws-node-http-api-project
+plugins:
+  - serverless-bundle
 frameworkVersion: '2 || 3'
 
 provider:
@@ -9,7 +11,8 @@ provider:
   iamRoleStatements:
   - Effect: 'Allow'
     Action:
-      - 'appconfig:GetConfiguration'
+      - appconfig:StartConfigurationSession
+      - appconfig:GetLatestConfiguration
     Resource: '*'
 
 functions:

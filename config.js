@@ -1,11 +1,11 @@
 import fetch from "node-fetch";
 
 const APP_CONFIG_LAYER_HOST = "localhost:2772";
-const APP_CONFIG_APPLICATION_ID = "jj2wbav";
-const APP_CONFIG_ENVIRONMENT_ID = "08o0gsc";
-const AOO_CONFIG_CONFIG_ID = "2wa5i6i";
+const APP_CONFIG_APPLICATION_ID = "kcamp2022";
+const APP_CONFIG_ENVIRONMENT_ID = "dev";
+const APP_CONFIG_CONFIG_ID = "k-camp-ff-profile";
 
-const configUrl = `http://${APP_CONFIG_LAYER_HOST}/applications/${APP_CONFIG_APPLICATION_ID}/environments/${APP_CONFIG_ENVIRONMENT_ID}/configurations/${AOO_CONFIG_CONFIG_ID}`;
+const configUrl = `http://${APP_CONFIG_LAYER_HOST}/applications/${APP_CONFIG_APPLICATION_ID}/environments/${APP_CONFIG_ENVIRONMENT_ID}/configurations/${APP_CONFIG_CONFIG_ID}`;
 
 exports.main = async (event) => {
   try {
@@ -14,8 +14,7 @@ exports.main = async (event) => {
       statusCode: 200,
       body: JSON.stringify(
         {
-          message: "Go Serverless v2.0! Your function executed successfully!",
-          config: rq,
+          config: await rq.json(),
         },
         null,
         2
